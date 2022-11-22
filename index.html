@@ -1,48 +1,49 @@
 <!DOCTYPE html>
+<html lang="en"></html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>The Monty Hall Problem</title>
 	<link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body>
-	<div id="body">
+<body id="body">
 		<header>
 			<h1>Welcome to Monty Hall Problem </h1>
 		</header>
-		<div id="instructions" class="instructions">
-			<div id="row1" class="row1">
+
+		<div id="row1" class="row1">
+			<div id="instructions" class="instructions">
 			Please select a door
 			</div>
+            <div id="decisions" class="decisions">
 			<div id="d1">You selected door #1</div>
 			<div id="d2">You selected door #2</div>
 			<div id="d3">You selected door #3</div>
-			
-<div id="row2" class="row2">
-				
-    <p>Ok... I will now open a door</p>
+            </div>
+            <div id="row2" class="row2">
 
-    <p>Would you like to switch doors? You have a <span id="percentage"> 99 </span>chance of winning if you switch</p>
-
+                <p>Would you like to switch doors? You have a 66% chance of winning if you switch</p>
 
 				<div class="buttons">
 					<button id="btn-1">Yes</button>
 					<button id="btn-2">No</button>
 				</div>
-			</div>
-		</div>
+            </div>
+        </div>
 
 		<main class="door-row">
 			<img id="door1" class="door"
-				src="images/door.jpg" alt="door">
+				src="images/doorClosed.png" alt="door">
 			<img id="door2" class="door"
-				src="images/door.jpg" alt="door">
+				src="images/doorClosed.png" alt="door">
 			<img id="door3" class="door"
-				src="images/door.jpg" alt="door">
+				src="images/doorClosed.png" alt="door">
 
 		</main>
 
-</div>
-
-
+<div class ="results" id="results">
 <div id="switchWin" class="result">
 		
     <p>Congratulations!!!!!</p>
@@ -111,7 +112,7 @@
             </button>
 		</div>
 </div>
+</div>
 
-<script src="script.js" async defer></script>
 </body>
 </html>

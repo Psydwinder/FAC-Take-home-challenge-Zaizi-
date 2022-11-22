@@ -30,7 +30,14 @@ header {
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  font-family: "McLaren", cursive;
+}
+
+.decisions {
+  height: 15vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
   margin: 20px 0;
 }
 
@@ -47,12 +54,26 @@ header {
   border: 10px solid #000;
 }
 
+.selected {
+  background-color: green;
+}
+
+.row2 {
+  height: 15vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
 .buttons {
   width: 300px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto auto;
+  margin-top: 40px;
 }
 
 button {
