@@ -29,6 +29,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 30px;
 }
 
@@ -37,6 +38,7 @@ header {
   display: none;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 30px;
   margin: 20px 0;
 }
@@ -63,6 +65,7 @@ header {
   display: none;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 30px;
 }
 
@@ -73,7 +76,7 @@ header {
   justify-content: center;
   align-items: center;
   margin: auto auto;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 button {

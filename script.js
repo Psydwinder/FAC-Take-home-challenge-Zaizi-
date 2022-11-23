@@ -20,13 +20,13 @@ const NoSwitchAndLose = document.getElementById("stickLose");
 const winPath = "images/doorWin.png"; // Image of Car
 const losePath = "images/doorLose.png"; // Image of Goat
 
-let openDoor1, openDoor2, openDoor3, winner; // Variables for shuffling the doors
+let openDoor1, openDoor2, openDoor3, winner;
 
 //Event listeners
 document.addEventListener("DOMContentLoaded", hideEl);
-doorImage1.addEventListener("click", door1Clicked);
-doorImage2.addEventListener("click", door2Clicked);
-doorImage3.addEventListener("click", door3Clicked);
+// doorImage1.addEventListener("click", door1Clicked);
+// doorImage2.addEventListener("click", door2Clicked);
+// doorImage3.addEventListener("click", door3Clicked);
 
 // Hiding unnecessary elements
 function hideEl() {
@@ -35,7 +35,10 @@ function hideEl() {
   d3.hidden = true;
   instructions.hidden = false;
   row2.hidden = true;
-  results.hidden = true;
+  SwitchAndWin.style.display = "none";
+  SwitchAndLose.style.display = "none";
+  NoSwitchAndWin.style.display = "none";
+  NoSwitchAndLose.style.display = "none";
 }
 
 // Function to randomly shuffle the doors
@@ -46,20 +49,21 @@ function winDoorGenerator() {
     openDoor2 = losePath;
     openDoor3 = losePath;
   } else if (winner === 2) {
+    openDoor1 = losePath;
     openDoor2 = winPath;
-    openDoor1 = losePath;
     openDoor3 = losePath;
-  } else {
-    openDoor3 = winPath;
-    openDoor2 = losePath;
+  } else if (winner === 3) {
     openDoor1 = losePath;
+    openDoor2 = losePath;
+    openDoor3 = winPath;
   }
 }
 // Calling the function
 winDoorGenerator();
 console.log(winner);
+console.log(openDoor1, openDoor2, openDoor3);
 
-function door1Clicked() {
+doorImage1.onclick = () => {
   doorImage1.classList.add("selected");
   instructions.style.display = "none";
   d1.hidden = false;
@@ -67,28 +71,92 @@ function door1Clicked() {
 
   if (openDoor2 === losePath) {
     setTimeout(() => {
-      doorImage2.src = openDoor2;
-    }, 3000);
+      doorImage2.src = "images/doorLose.png";
+    }, 2000);
     setTimeout(() => {
       row2.style.display = "block";
-    }, 4000);
+    }, 3000);
     setTimeout(() => {
       decisions.style.display = "none";
-    }, 4000);
+    }, 3000);
   } else if (openDoor3 === losePath) {
     setTimeout(() => {
-      doorImage3.src = openDoor3;
-    }, 3000);
+      doorImage3.src = "images/doorLose.png";
+    }, 2000);
     setTimeout(() => {
       row2.style.display = "block";
-    }, 4000);
+    }, 3000);
     setTimeout(() => {
       decisions.style.display = "none";
-    }, 4000);
+    }, 3000);
   }
-}
 
-function door2Clicked() {
+  switchChoiceYes.onclick = () => {
+    if (openDoor2 === losePath) {
+      row2.style.display = "none";
+      instructions.style.display = "block";
+      instructions.innerHTML = "You switched to door #3";
+
+      setTimeout(() => {
+        doorImage3.src = openDoor3;
+      }, 2000);
+
+      //Conditions to display the result page
+      if (openDoor3 === losePath) {
+        setTimeout(() => {
+          switchAndLose();
+        }, 3500);
+      } else {
+        setTimeout(() => {
+          switchAndWin();
+        }, 3500);
+      }
+    } else if (openDoor3 === losePath) {
+      row2.style.display = "none";
+      instructions.style.display = "block";
+      instructions.innerHTML = "You switched to door #2";
+
+      // Opening the chosen door
+      setTimeout(() => {
+        doorImage2.src = openDoor2;
+      }, 2000);
+      //Conditions to display the result page
+      if (openDoor2 === losePath) {
+        setTimeout(() => {
+          switchAndLose();
+        }, 3500);
+      } else {
+        setTimeout(() => {
+          switchAndWin();
+        }, 3500);
+      }
+    }
+  };
+
+  switchChoiceNo.onclick = () => {
+    row2.style.display = "none";
+    instructions.style.display = "block";
+    instructions.innerHTML = "Your choice is still door #1";
+
+    // Opening the chosen door
+    setTimeout(() => {
+      doorImage1.src = openDoor1;
+    }, 2000);
+
+    // Conditions to display the result page
+    if (openDoor1 === losePath) {
+      setTimeout(() => {
+        noSwitchAndLose();
+      }, 3000);
+    } else {
+      setTimeout(() => {
+        noSwitchAndWin();
+      }, 3000);
+    }
+  };
+};
+
+doorImage2.onclick = () => {
   doorImage2.classList.add("selected");
   instructions.style.display = "none";
   d2.hidden = false;
@@ -96,52 +164,197 @@ function door2Clicked() {
 
   if (openDoor1 === losePath) {
     setTimeout(() => {
-      doorImage1.src = openDoor1;
-    }, 3000);
+      doorImage1.src = "images/doorLose.png";
+    }, 2000);
     setTimeout(() => {
       row2.style.display = "block";
-    }, 4000);
+    }, 3000);
     setTimeout(() => {
       decisions.style.display = "none";
-    }, 4000);
+    }, 3000);
   } else if (openDoor3 === losePath) {
     setTimeout(() => {
-      doorImage3.src = openDoor3;
-    }, 3000);
+      doorImage3.src = "images/doorLose.png";
+    }, 2000);
     setTimeout(() => {
       row2.style.display = "block";
-    }, 4000);
+    }, 3000);
     setTimeout(() => {
       decisions.style.display = "none";
-    }, 4000);
+    }, 3000);
   }
-}
+  switchChoiceYes.onclick = () => {
+    if (openDoor1 === losePath) {
+      row2.style.display = "none";
+      instructions.style.display = "block";
+      instructions.innerHTML = "You switched to door #3";
 
-function door3Clicked() {
+      // Opening the chosen door
+      setTimeout(() => {
+        doorImage3.src = openDoor3;
+      }, 2000);
+
+      //Conditions to display the result page
+      if (openDoor3 === losePath) {
+        setTimeout(() => {
+          switchAndLose();
+        }, 3500);
+      } else {
+        setTimeout(() => {
+          switchAndWin();
+        }, 3500);
+      }
+    } else if (openDoor3 === losePath) {
+      row2.style.display = "none";
+      instructions.style.display = "block";
+      instructions.innerHTML = "You switched to door #1";
+
+      // Opening the chosen door
+      setTimeout(() => {
+        doorImage1.src = openDoor1;
+      }, 2000);
+      //Conditions to display the result page
+      if (openDoor1 === losePath) {
+        setTimeout(() => {
+          switchAndLose();
+        }, 3500);
+      } else {
+        setTimeout(() => {
+          switchAndWin();
+        }, 3500);
+      }
+    }
+  };
+
+  switchChoiceNo.onclick = () => {
+    row2.style.display = "none";
+    instructions.style.display = "block";
+    instructions.innerHTML = "Your choice is still door #2";
+
+    // Opening the chosen door
+    setTimeout(() => {
+      doorImage2.src = openDoor2;
+    }, 2000);
+
+    // Conditions to display the result page
+    if (openDoor2 === losePath) {
+      setTimeout(() => {
+        noSwitchAndLose();
+      }, 3000);
+    } else {
+      setTimeout(() => {
+        noSwitchAndWin();
+      }, 3000);
+    }
+  };
+};
+
+doorImage3.onclick = () => {
   doorImage3.classList.add("selected");
   instructions.style.display = "none";
   d3.hidden = false;
   decisions.style.display = "flex";
 
-  if (openDoor2 === losePath) {
+  if (openDoor1 === losePath) {
     setTimeout(() => {
-      doorImage2.src = openDoor2;
-    }, 3000);
-    setTimeout(() => {
-      row2.style.display = "block";
-    }, 4000);
-    setTimeout(() => {
-      decisions.style.display = "none";
-    }, 4000);
-  } else if (openDoor1 === losePath) {
-    setTimeout(() => {
-      doorImage1.src = openDoor1;
-    }, 3000);
+      doorImage1.src = "images/doorLose.png";
+    }, 2000);
     setTimeout(() => {
       row2.style.display = "block";
-    }, 4000);
+    }, 3000);
     setTimeout(() => {
       decisions.style.display = "none";
-    }, 4000);
+    }, 3000);
+  } else if (openDoor2 === losePath) {
+    setTimeout(() => {
+      doorImage2.src = "images/doorLose.png";
+    }, 2000);
+    setTimeout(() => {
+      row2.style.display = "block";
+    }, 3000);
+    setTimeout(() => {
+      decisions.style.display = "none";
+    }, 3000);
   }
-}
+  switchChoiceYes.onclick = () => {
+    if (openDoor1 === losePath) {
+      row2.style.display = "none";
+      instructions.style.display = "block";
+      instructions.innerHTML = "You switched to door #2";
+
+      // Opening the chosen door
+      setTimeout(() => {
+        doorImage2.src = openDoor2;
+      }, 2000);
+
+      //Conditions to display the result page
+      if (openDoor2 === losePath) {
+        setTimeout(() => {
+          switchAndLose();
+        }, 3500);
+      } else {
+        setTimeout(() => {
+          switchAndWin();
+        }, 3500);
+      }
+    } else if (openDoor2 === losePath) {
+      row2.style.display = "none";
+      instructions.style.display = "block";
+      instructions.innerHTML = "You switched to door #1";
+
+      // Opening the chosen door
+      setTimeout(() => {
+        doorImage1.src = openDoor1;
+      }, 2000);
+      //Conditions to display the result page
+      if (openDoor1 === losePath) {
+        setTimeout(() => {
+          switchAndLose();
+        }, 3500);
+      } else {
+        setTimeout(() => {
+          switchAndWin();
+        }, 3500);
+      }
+    }
+  };
+
+  switchChoiceNo.onclick = () => {
+    row2.style.display = "none";
+    instructions.style.display = "block";
+    instructions.innerHTML = "Your choice is still door #3";
+
+    // Opening the chosen door
+    setTimeout(() => {
+      doorImage3.src = openDoor3;
+    }, 2000);
+
+    // Conditions to display the result page
+    if (openDoor3 === losePath) {
+      setTimeout(() => {
+        noSwitchAndLose();
+      }, 3000);
+    } else {
+      setTimeout(() => {
+        noSwitchAndWin();
+      }, 3000);
+    }
+  };
+};
+
+const switchAndWin = () => {
+  body.style.display = "none";
+  SwitchAndWin.style.display = "block";
+};
+const switchAndLose = () => {
+  body.style.display = "none";
+  SwitchAndLose.style.display = "block";
+};
+const noSwitchAndWin = () => {
+  body.style.display = "none";
+  NoSwitchAndWin.style.display = "block";
+};
+const noSwitchAndLose = () => {
+  body.style.display = "none";
+  NoSwitchAndLose.style.display = "block";
+};
