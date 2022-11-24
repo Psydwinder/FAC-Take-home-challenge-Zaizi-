@@ -32,16 +32,16 @@ For this take home challenge we will be creating a simple game that emulates the
 
 It should:
 
-- [ ] Allow the user to see a **visual representation** of three doors or something equivalent
-- [ ] Allow the user to **pick one door** as their first choice and **remember that choice**
-- [ ] **Reveal** to the player **one of the remaining two doors** with the goat behind it
-- [ ] Present the player with the option to **stick** with their original choice or **switch** to the other unopened door, along with a **percentage** chance to **convince the player to switch** 
-- [ ] Display a message to **show** the user if they chose the **correct door**
-- [ ] Allow the user to **reset the game** and **play again**
+- [X] Allow the user to see a **visual representation** of three doors or something equivalent
+- [X] Allow the user to **pick one door** as their first choice and **remember that choice**
+- [X] **Reveal** to the player **one of the remaining two doors** with the goat behind it
+- [X] Present the player with the option to **stick** with their original choice or **switch** to the other unopened door, along with a **percentage** chance to **convince the player to switch** 
+- [X] Display a message to **show** the user if they chose the **correct door**
+- [X] Allow the user to **reset the game** and **play again**
 
 Stretch
 
-- [ ] Be compatible with mobile devices
+- [ ] Be compatible with mobile devices :construction:
 
 ---
 
