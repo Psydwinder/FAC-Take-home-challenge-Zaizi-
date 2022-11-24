@@ -47,7 +47,7 @@ Stretch
 
 ## How to view the project
 
-You can view a live version of the project by clicking [**here**]("")
+You can view a live version of the project by clicking [**here**]("https://psydwinder.github.io/FAC-Take-home-challenge-Zaizi-/")
 
 In order to view it on your local computer, you need to:
 
