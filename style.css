@@ -24,6 +24,20 @@ header {
   text-align: center;
 }
 
+span{
+  font-weight: bolder;
+}
+
+
+.stat-bar{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 100px;
+}
+
 .instructions {
   height: 15vh;
   display: flex;
@@ -41,6 +55,7 @@ header {
   text-align: center;
   font-size: 30px;
   margin: 20px 0;
+  
 }
 
 .door-row {
@@ -67,6 +82,7 @@ header {
   align-items: center;
   text-align: center;
   font-size: 30px;
+  margin-top: 50px;;
 }
 
 .buttons {
