@@ -398,6 +398,7 @@ function playAgain (){
 
 }
 
+//Calculated the stats for a playthrough of the game that gets logged when the play again button is clicked
 function calcStats(){
   document.getElementById("totalPlayed").innerHTML = count;
   document.getElementById("switchWins").innerHTML = switchWins;
