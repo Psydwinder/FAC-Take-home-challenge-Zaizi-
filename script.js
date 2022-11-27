@@ -416,11 +416,11 @@ function calcStats(){
     switchPercentageContent.innerHTML = "0%"
     stickPercentageContent.innerHTML = "0%"
   } else if (switchWins > 0 && stickWins === 0){
-    switchPercentage = Math.round((switchWins/switchCounter)*100);
+    switchPercentage = Math.round((switchWins/count)*100);
     switchPercentageContent.innerHTML = `${switchPercentage}%`
     stickPercentageContent.innerHTML = "0%"
 } else if (switchWins === 0 && stickWins > 0){
-    stickPercentage = Math.round((stickWins/stickCounter)*100);
+    stickPercentage = Math.round((stickWins/count)*100);
     stickPercentageContent.innerHTML = `${stickPercentage}%`
     switchPercentageContent.innerHTML = "0%"
 } else if (switchWins > 0 && stickWins > 0){
